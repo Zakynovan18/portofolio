@@ -226,7 +226,7 @@ export default function Terminal() {
       <div className="p-4 flex flex-col gap-y-4">
         <div 
           ref={codeContainerRef}
-          className="h-[240px] overflow-y-auto text-xs leading-relaxed font-mono pr-1 select-none scrollbar-thin scrollbar-thumb-white/10"
+          className="h-[240px] overflow-y-auto text-xs leading-relaxed font-mono pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10"
         >
           {displayedLines.map((line, idx) => (
             <div key={idx} className="whitespace-pre">
@@ -247,7 +247,7 @@ export default function Terminal() {
           </span>
           <div 
             ref={outputContainerRef}
-            className="h-[120px] overflow-y-auto text-[11px] leading-relaxed font-mono pr-1 select-none scrollbar-thin scrollbar-thumb-white/10"
+            className="h-[120px] overflow-y-auto text-[11px] leading-relaxed font-mono pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10"
           >
             {outputLines.length === 0 ? (
               <div className="text-slate-600 italic">Waiting for training to start...</div>
