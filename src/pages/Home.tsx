@@ -126,7 +126,11 @@ export default function Home() {
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8 text-left">
             <div className="mt-16 sm:mt-24 lg:mt-8">
               <a href="#" className="inline-flex flex-wrap items-center gap-x-3 gap-y-2">
-  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm/6 font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20 whitespace-nowrap">
+  <span className="inline-flex items-center gap-x-2 rounded-full bg-blue-500/10 px-3 py-1 text-sm/6 font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20 whitespace-nowrap">
+      <span className="relative flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+      </span>
       Available for Hire
   </span>
 </a>
