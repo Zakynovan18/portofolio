@@ -1,3 +1,5 @@
+import { MapPinIcon } from '@heroicons/react/24/outline'
+
 const footerNav = [
   { name: 'Home', href: '#home' },
   { name: 'About Me', href: '#about' },
@@ -77,6 +79,10 @@ export default function Footer() {
             </a>
             <p className="mt-2 max-w-xs text-base text-gray-500">
               Web Developer &amp; Machine Learning Enthusiast. Membangun sesuatu yang bermanfaat, satu baris kode dalam satu waktu. <br /> Visca Barca Visca Catalunya.
+            </p>
+            <p className="mt-3 flex items-center justify-center gap-x-1.5 text-sm text-gray-500 sm:justify-start">
+              <MapPinIcon className="size-4 text-blue-400" />
+              JL. Tani Sentosa, Kedungglugu, Kec. Gondang, Kab. Nganjuk, Jawa Timur
             </p>
           </div>
  
