@@ -16,7 +16,7 @@ const projects = [
       'Platform toko online dengan keranjang belanja, manajemen produk, dan penyimpanan gambar berbasis cloud.',
     tags: ['Laravel', 'Cloudinary', 'MySQL', 'Railway'],
     status: 'Completed',
-    color: 'from-emerald-600 to-teal-600',
+    color: 'from-blue-600 to-indigo-600',
     image: '/projects/vanshop.jpeg',
   },
   {
@@ -25,7 +25,7 @@ const projects = [
       'Duitsaku merupakan aplikasi berbasis web yang dibuat untuk membantu mahasiswa terutama dalam manajemen keuangan selama berkuliah atau ngekost.',
     tags: ['Laravel', 'Blade', 'MySQL', 'Bootstrap'],
     status: 'Completed',
-    color: 'from-rose-600 to-pink-600',
+    color: 'from-blue-600 to-indigo-600',
     image: '/projects/duitsaku.jpeg',
   },
   {
@@ -34,7 +34,7 @@ const projects = [
       'Website rental mobil untuk client, lengkap dengan alur pemesanan dan panel pengelolaan armada',
     tags: ['Next.js', 'Vercel', 'Supabase',],
     status: 'Completed',
-    color: 'from-violet-600 to-purple-600',
+    color: 'from-blue-600 to-indigo-600',
     image: '/projects/rentalku.jpeg',
   },
   {
@@ -43,7 +43,7 @@ const projects = [
       'Website penjualana yang dibuat untuk membantu umkm lokal dengan mempromosikan beberapa varian parfum dari toko nya',
     tags: ['Laravel', 'Mysql', 'Bootstrap'],
     status: 'Completed',
-    color: 'from-violet-600 to-purple-600',
+    color: 'from-blue-600 to-indigo-600',
     image: '/projects/redsco.jpeg',
   },
   {
@@ -52,7 +52,7 @@ const projects = [
       'Website yang saya buat karena permasalahan di pedesaan yaitusulitnya dalam menjual dan mencari pengepul panenan hasil petani saat musim panen',
     tags: ['Laravel', 'Blade', 'Mysql', 'Cloudinary', 'Railway'],
     status: 'Completed',
-    color: 'from-violet-600 to-purple-600',
+    color: 'from-blue-600 to-indigo-600',
     image: '/projects/basne.jpeg',
   },
 ]

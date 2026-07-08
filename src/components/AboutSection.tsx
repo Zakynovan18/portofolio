@@ -94,7 +94,7 @@ export default function AboutSection() {
               Passionate about building things <span className="text-blue-400">for the web</span>
             </h2>
             <p className="mt-6 text-lg text-gray-400 leading-8">
-              Hi! I'm <span className="text-white font-semibold">Muhammad Zaky Novananda</span>, an final-year Informatics Engineering student. I enjoy building clean,
+              Hi! I'm <span className="text-white font-semibold">Muhammad Zaky Novananda</span>, a final-year Informatics Engineering student. I enjoy building clean,
               performant web applications and exploring the intersection of <span className="text-blue-400">web development</span> and{' '}
               <span className="text-blue-400">machine learning</span>.
             </p>
