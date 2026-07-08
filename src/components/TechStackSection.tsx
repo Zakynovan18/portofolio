@@ -14,10 +14,62 @@ const techStacks = [
   { name: 'MySQL',       color: '#4479A1', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
   { name: 'Git',         color: '#F05032', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
   { name: 'Docker',      color: '#2496ED', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-
 ]
  
-const scrollRow = [...techStacks, ...techStacks]
+// Bagi jadi 2 baris — separuh pertama & separuh kedua
+const half = Math.ceil(techStacks.length / 2)
+const row1 = techStacks.slice(0, half)
+const row2 = techStacks.slice(half)
+ 
+// Duplikasi tiap baris biar animasi marquee-nya nyambung mulus (seamless loop)
+const scrollRow1 = [...row1, ...row1]
+const scrollRow2 = [...row2, ...row2]
+ 
+function TechRow({
+  items,
+  reverse = false,
+  duration = '22s',
+}: {
+  items: typeof techStacks
+  reverse?: boolean
+  duration?: string
+}) {
+  return (
+    <div style={{ overflow: 'hidden', position: 'relative', width: '100%' }}>
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-slate-950 to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-slate-950 to-transparent" />
+ 
+      <div
+        style={{
+          display: 'flex',
+          gap: '1.5rem',
+          width: 'max-content',
+          animation: `${reverse ? 'marquee-reverse' : 'marquee'} ${duration} linear infinite`,
+        }}
+        onMouseEnter={e => (e.currentTarget.style.animationPlayState = 'paused')}
+        onMouseLeave={e => (e.currentTarget.style.animationPlayState = 'running')}
+      >
+        {items.map((tech, i) => (
+          <div
+            key={i}
+            className="group flex flex-col items-center gap-y-3 rounded-2xl bg-white/5 ring-1 ring-white/10 px-6 pt-7 pb-5 flex-shrink-0 hover:bg-white/10 hover:ring-blue-500/40 transition-all duration-300 cursor-default"
+            style={{ width: '160px' }}
+          >
+            <img
+              src={tech.icon}
+              alt={tech.name}
+              className="h-14 w-14 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
+              style={{ filter: tech.name === 'Next.js' ? 'invert(1)' : undefined }}
+            />
+            <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors text-center leading-tight">
+              {tech.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
  
 export default function TechStackSection() {
   return (
@@ -44,45 +96,23 @@ export default function TechStackSection() {
         </Reveal>
       </div>
  
-      <div style={{ overflow: 'hidden', position: 'relative', width: '100%' }}>
-        <style>{`
-          @keyframes marquee {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
+      <style>{`
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-reverse {
+          0%   { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
  
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-slate-950 to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-slate-950 to-transparent" />
+      <div className="flex flex-col gap-y-6">
+        {/* Baris 1: bergerak kanan → kiri */}
+        <TechRow items={scrollRow1} duration="20s" />
  
-        <div
-          style={{
-            display: 'flex',
-            gap: '1.5rem',
-            width: 'max-content',
-            animation: 'marquee 30s linear infinite',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.animationPlayState = 'paused')}
-          onMouseLeave={e => (e.currentTarget.style.animationPlayState = 'running')}
-        >
-          {scrollRow.map((tech, i) => (
-            <div
-              key={i}
-              className="group flex flex-col items-center gap-y-3 rounded-2xl bg-white/5 ring-1 ring-white/10 px-6 pt-7 pb-5 flex-shrink-0 hover:bg-white/10 hover:ring-blue-500/40 transition-all duration-300 cursor-default"
-              style={{ width: '160px' }}
-            >
-              <img
-                src={tech.icon}
-                alt={tech.name}
-                className="h-14 w-14 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
-                style={{ filter: tech.name === 'Next.js' ? 'invert(1)' : undefined }}
-              />
-              <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors text-center leading-tight">
-                {tech.name}
-              </span>
-            </div>
-          ))}
-        </div>
+        {/* Baris 2: bergerak kiri → kanan */}
+        <TechRow items={scrollRow2} reverse duration="20s" />
       </div>
     </section>
   )

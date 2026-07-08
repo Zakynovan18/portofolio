@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
  
 import Terminal from '../components/Terminal'
 import AboutSection from '../components/AboutSection'
@@ -130,24 +130,40 @@ export default function Home() {
 </a>
             </div>
  
-            <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Hi, I'm Nanda <br />
-              <span className="text-blue-500">Web Developer</span>
+            {/* Foto profil bulat + sapaan */}
+            <div className="mt-12 flex items-center gap-x-4">
+              <img
+                src="/profil.png"
+                alt="Foto Muhammad Zaky Novananda"
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-blue-500/50"
+              />
+              <span className="text-lg font-medium text-gray-300">Hi, I'm Nanda</span>
+            </div>
+ 
+            <h1 className="mt-4 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+                Web Developer
+              </span>
             </h1>
  
             <p className="mt-6 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              i am fresh graduate, and i am passionate in web developer and machine learning.
+              I am fresh graduate, and i am passionate in web development and machine learning.
             </p>
  
-            <div className="mt-10 flex items-center gap-x-6">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="/cv/CV_Muhammad Zaky Novananda.pdf"
                 download="CV_Muhammad Zaky Novananda.pdf"
-                className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition"
+                className="inline-flex items-center gap-x-2 rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition"
               >
+                <ArrowDownTrayIcon className="size-4" />
                 Download CV
               </a>
-              <a href="#contact" className="text-sm/6 font-semibold text-white hover:text-blue-400 transition flex items-center gap-x-1">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-x-2 rounded-md border-2 border-blue-500 px-4 py-2.5 text-sm font-semibold text-blue-400 hover:bg-blue-500/10 transition"
+              >
+                <EnvelopeIcon className="size-4" />
                 Contact Me <span aria-hidden="true">→</span>
               </a>
             </div>

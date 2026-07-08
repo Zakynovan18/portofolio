@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-
+ 
 const codeSnippets = [
   {
     language: 'python',
@@ -83,26 +83,26 @@ const codeSnippets = [
     ]
   }
 ]
-
+ 
 const highlight = (line: string, lang: string) => {
   if (!line) return <span>&nbsp;</span>;
   if (line.trim().startsWith('#') || line.trim().startsWith('//')) {
     return <span className="text-slate-500 italic">{line}</span>;
   }
-
+ 
   const parts = line.split(/(\s+|\(|\)|\{|\}|\[|\]|\.|\,|\;|:|=|\+|-|\*|\/|\'|\"|`)/);
   let isInsideString = false;
   let stringChar = '';
-
+ 
   const pyKeywords = ['import', 'from', 'class', 'def', 'return', 'super', 'for', 'in', 'break', 'as'];
   const jsKeywords = ['import', 'from', 'const', 'let', 'var', 'async', 'await', 'function', 'return', 'if', 'else', 'try', 'catch', 'require'];
   const keywords = lang === 'python' ? pyKeywords : jsKeywords;
-
+ 
   return (
     <>
       {parts.map((part, i) => {
         if (!part) return null;
-
+ 
         if (part === '"' || part === "'" || part === '`') {
           if (!isInsideString) {
             isInsideString = true;
@@ -113,11 +113,11 @@ const highlight = (line: string, lang: string) => {
             return <span key={i} className="text-emerald-400">{part}</span>;
           }
         }
-
+ 
         if (isInsideString) {
           return <span key={i} className="text-emerald-400">{part}</span>;
         }
-
+ 
         const trimmed = part.trim();
         if (keywords.includes(trimmed)) {
           return <span key={i} className="text-pink-500 font-semibold">{part}</span>;
@@ -136,7 +136,7 @@ const highlight = (line: string, lang: string) => {
     </>
   );
 };
-
+ 
 export default function Terminal() {
   const [snippetIndex, setSnippetIndex] = useState(0);
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
@@ -146,12 +146,12 @@ export default function Terminal() {
   const [isTyping, setIsTyping] = useState(true);
   const [outputLines, setOutputLines] = useState<string[]>([]);
   const [outputIndex, setOutputIndex] = useState(0);
-
+ 
   const codeContainerRef = useRef<HTMLDivElement>(null);
   const outputContainerRef = useRef<HTMLDivElement>(null);
-
+ 
   const currentSnippet = codeSnippets[snippetIndex];
-
+ 
   useEffect(() => {
     setDisplayedLines([]);
     setCurrentLineText('');
@@ -161,19 +161,19 @@ export default function Terminal() {
     setOutputLines([]);
     setOutputIndex(0);
   }, [snippetIndex]);
-
+ 
   useEffect(() => {
     if (codeContainerRef.current) {
       codeContainerRef.current.scrollTop = codeContainerRef.current.scrollHeight;
     }
   }, [displayedLines, currentLineText]);
-
+ 
   useEffect(() => {
     if (outputContainerRef.current) {
       outputContainerRef.current.scrollTop = outputContainerRef.current.scrollHeight;
     }
   }, [outputLines]);
-
+ 
   useEffect(() => {
     if (isTyping) {
       if (lineIndex < currentSnippet.lines.length) {
@@ -208,7 +208,7 @@ export default function Terminal() {
       }
     }
   }, [isTyping, lineIndex, charIndex, outputIndex, snippetIndex, currentSnippet]);
-
+ 
   return (
     <div className="w-full min-w-[320px] max-w-[560px] rounded-xl bg-slate-950/80 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden font-mono text-left">
       <div className="bg-slate-900/80 border-b border-white/5 px-4 py-2.5 flex items-center justify-between">
@@ -222,52 +222,60 @@ export default function Terminal() {
           {currentSnippet.language === 'python' ? 'Python' : 'JavaScript'}
         </span>
       </div>
-
+ 
       <div className="p-4 flex flex-col gap-y-4">
-        <div 
-          ref={codeContainerRef}
-          className="h-[240px] overflow-y-auto text-xs leading-relaxed font-mono pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10"
-        >
-          {displayedLines.map((line, idx) => (
-            <div key={idx} className="whitespace-pre">
-              {highlight(line, currentSnippet.language)}
-            </div>
-          ))}
-          {currentLineText && (
-            <div className="whitespace-pre">
-              {highlight(currentLineText, currentSnippet.language)}
-              <span className="animate-pulse bg-blue-400 text-transparent select-none ml-0.5">|</span>
-            </div>
-          )}
+        <div className="relative">
+          <div 
+            ref={codeContainerRef}
+            className="h-[240px] overflow-y-auto text-xs leading-relaxed font-mono pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10"
+          >
+            {displayedLines.map((line, idx) => (
+              <div key={idx} className="whitespace-pre-wrap break-words">
+                {highlight(line, currentSnippet.language)}
+              </div>
+            ))}
+            {currentLineText && (
+              <div className="whitespace-pre-wrap break-words">
+                {highlight(currentLineText, currentSnippet.language)}
+                <span className="animate-pulse bg-blue-400 text-transparent select-none ml-0.5">|</span>
+              </div>
+            )}
+          </div>
+          {/* Fade bawah biar kesannya masih ada lanjutan kode */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-950/90 to-transparent" />
         </div>
-
+ 
         <div className="border-t border-white/5 pt-3">
           <span className="text-[10px] font-semibold text-gray-500 tracking-wider uppercase block mb-1.5">
             Console Output
           </span>
-          <div 
-            ref={outputContainerRef}
-            className="h-[120px] overflow-y-auto text-[11px] leading-relaxed font-mono pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10"
-          >
-            {outputLines.length === 0 ? (
-              <div className="text-slate-600 italic">Waiting for training to start...</div>
-            ) : (
-              outputLines.map((line, idx) => {
-                let colorClass = 'text-slate-400';
-                if (line.includes('[SUCCESS]') || line.startsWith('episode:') || line.startsWith('✔')) {
-                  colorClass = 'text-emerald-400';
-                } else if (line.includes('[INFO]') || line.startsWith('>')) {
-                  colorClass = 'text-blue-400';
-                } else if (line.includes('[API]')) {
-                  colorClass = 'text-cyan-400';
-                }
-                return (
-                  <div key={idx} className={colorClass}>
-                    {line}
-                  </div>
-                );
-              })
-            )}
+          <div className="relative">
+            <div 
+              ref={outputContainerRef}
+              className="h-[120px] overflow-y-auto text-[11px] leading-relaxed font-mono pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10"
+            >
+              {outputLines.length === 0 ? (
+                <div className="text-slate-600 italic">Waiting for training to start...</div>
+              ) : (
+                outputLines.map((line, idx) => {
+                  let colorClass = 'text-slate-400';
+                  if (line.includes('[SUCCESS]') || line.startsWith('episode:') || line.startsWith('✔')) {
+                    colorClass = 'text-emerald-400';
+                  } else if (line.includes('[INFO]') || line.startsWith('>')) {
+                    colorClass = 'text-blue-400';
+                  } else if (line.includes('[API]')) {
+                    colorClass = 'text-cyan-400';
+                  }
+                  return (
+                    <div key={idx} className={`${colorClass} whitespace-pre-wrap break-words`}>
+                      {line}
+                    </div>
+                  );
+                })
+              )}
+            </div>
+            {/* Fade bawah buat output juga */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-slate-950/90 to-transparent" />
           </div>
         </div>
       </div>
