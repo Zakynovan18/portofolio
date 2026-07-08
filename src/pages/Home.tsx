@@ -129,17 +129,17 @@ export default function Home() {
   </span>
 </a>
             </div>
- 
+
             {/* Foto profil bulat + sapaan */}
             <div className="mt-12 flex items-center gap-x-4">
               <img
                 src="/profil.png"
                 alt="Foto Muhammad Zaky Novananda"
-                className="h-14 w-14 rounded-full object-cover ring-2 ring-blue-500/50"
+                className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover ring-2 ring-blue-500/50"
               />
               <span className="text-lg font-medium text-gray-300">Hi, I'm Nanda</span>
             </div>
- 
+
             <h1 className="mt-4 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
               <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
                 Web Developer
@@ -147,7 +147,7 @@ export default function Home() {
             </h1>
  
             <p className="mt-6 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              I am fresh graduate, and i am passionate in web development and machine learning.
+              i am fresh graduate, and i am passionate in web developer and machine learning.
             </p>
  
             <div className="mt-10 flex flex-wrap items-center gap-4">
