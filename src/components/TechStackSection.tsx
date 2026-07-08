@@ -7,6 +7,7 @@ const techStacks = [
   { name: 'TypeScript', color: '#3178C6', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
   { name: 'React',       color: '#61DAFB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
   { name: 'Next.js',     color: '#FFFFFF', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+  { name: 'VS Code', color: '#007ACC', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
   { name: 'Tailwind',   color: '#06B6D4', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
   { name: 'Node.js',    color: '#339933', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
   { name: 'Python',      color: '#3776AB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
@@ -109,10 +110,10 @@ export default function TechStackSection() {
  
       <div className="flex flex-col gap-y-6">
         {/* Baris 1: bergerak kanan → kiri */}
-        <TechRow items={scrollRow1} duration="20s" />
+        <TechRow items={scrollRow1} duration="24s" />
  
         {/* Baris 2: bergerak kiri → kanan */}
-        <TechRow items={scrollRow2} reverse duration="20s" />
+        <TechRow items={scrollRow2} reverse duration="24s" />
       </div>
     </section>
   )

@@ -33,7 +33,9 @@ export default function Home() {
     <div className="bg-slate-950 min-h-screen text-white relative overflow-hidden">
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-          scrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/10 shadow-lg' : 'bg-transparent'
+          scrolled
+            ? 'bg-slate-950 backdrop-blur-md border-b border-white/10 shadow-lg'
+            : 'bg-slate-950/40 backdrop-blur-sm border-b border-white/5'
         }`}
       >
         <nav aria-label="Global" className="flex items-center justify-between p-4 sm:p-6 lg:px-8">
@@ -125,7 +127,7 @@ export default function Home() {
             <div className="mt-16 sm:mt-24 lg:mt-8">
               <a href="#" className="inline-flex flex-wrap items-center gap-x-3 gap-y-2">
   <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm/6 font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20 whitespace-nowrap">
-      Available for Freelance • Full-time • Remote
+      Available for Hire
   </span>
 </a>
             </div>
@@ -133,7 +135,7 @@ export default function Home() {
             {/* Foto profil bulat + sapaan */}
             <div className="mt-12 flex items-center gap-x-4">
               <img
-                src="/profil.png"
+                src="/profile.jpg"
                 alt="Foto Muhammad Zaky Novananda"
                 className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover ring-2 ring-blue-500/50"
               />
