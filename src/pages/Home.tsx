@@ -125,7 +125,7 @@ export default function Home() {
             <div className="mt-16 sm:mt-24 lg:mt-8">
               <a href="#" className="inline-flex flex-wrap items-center gap-x-3 gap-y-2">
   <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm/6 font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20 whitespace-nowrap">
-      Available for Hire
+      Available for Freelance • Full-time • Remote
   </span>
 </a>
             </div>
