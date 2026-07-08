@@ -135,7 +135,7 @@ export default function Home() {
             {/* Foto profil bulat + sapaan */}
             <div className="mt-12 flex items-center gap-x-4">
               <img
-                src="/profile.jpg"
+                src="/profil.png"
                 alt="Foto Muhammad Zaky Novananda"
                 className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover ring-2 ring-blue-500/50"
               />
