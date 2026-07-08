@@ -81,9 +81,9 @@ export default function Footer() {
               Web Developer &amp; Machine Learning Enthusiast. Membangun sesuatu yang bermanfaat, satu baris kode dalam satu waktu. <br /> Visca Barca Visca Catalunya.
             </p>
             <p className="mt-3 flex items-center justify-center gap-x-1.5 text-sm text-gray-500 sm:justify-start">
-              <MapPinIcon className="size-4 text-blue-400" />
-              JL. Tani Sentosa, Kedungglugu, Kec. Gondang, Kab. Nganjuk, Jawa Timur
-            </p>
+  <MapPinIcon className="size-4 text-blue-400 flex-shrink-0 mt-0.5" />
+  <span className="text-left">JL. Tani Sentosa, Kedungglugu, Kec. Gondang, Kab. Nganjuk, Jawa Timur</span>
+</p>
           </div>
  
           {/* Nav links */}
