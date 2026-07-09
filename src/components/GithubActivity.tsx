@@ -67,6 +67,7 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
   const [events, setEvents] = useState<GitHubEvent[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(0)
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}/events/public?per_page=8`)
@@ -83,6 +84,19 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
         setLoading(false)
       })
   }, [username])
+
+  // Muncul satu-satu bertahap (fade-in), efek pengganti "typing" karena kontennya bukan kode
+  useEffect(() => {
+    if (events.length === 0) return
+    setVisibleCount(0)
+    let i = 0
+    const interval = setInterval(() => {
+      i += 1
+      setVisibleCount(i)
+      if (i >= events.length) clearInterval(interval)
+    }, 350)
+    return () => clearInterval(interval)
+  }, [events])
 
   return (
     <div className="w-full min-w-[320px] max-w-[560px] rounded-xl bg-slate-950/80 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden font-mono text-left">
@@ -113,7 +127,7 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
             Recent Activity
           </span>
 
-          <div className="h-[150px] overflow-y-auto text-[11px] leading-relaxed pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10 flex flex-col gap-y-2.5">
+          <div className="h-[150px] overflow-y-auto text-[11px] leading-relaxed pr-1 select-none scrollbar-thin scrollbar-thumb-white/10 flex flex-col gap-y-2.5">
             {loading && (
               <div className="text-slate-600 italic">Fetching activity...</div>
             )}
@@ -125,7 +139,7 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
                   href={`https://github.com/${username}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline pointer-events-auto"
+                  className="text-blue-400 hover:underline"
                 >
                   github.com/{username}
                 </a>{' '}
@@ -139,8 +153,13 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
 
             {!loading &&
               !error &&
-              events.map((event) => (
-                <div key={event.id} className="flex items-start gap-x-2">
+              events.map((event, index) => (
+                <div
+                  key={event.id}
+                  className={`flex items-start gap-x-2 transition-opacity duration-500 ${
+                    index < visibleCount ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
                   <span className="text-emerald-400 shrink-0">▸</span>
                   <span className="text-slate-300">
                     {describeEvent(event)}
