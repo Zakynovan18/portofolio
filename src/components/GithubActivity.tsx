@@ -25,8 +25,12 @@ function describeEvent(event: GitHubEvent): string {
     case 'PushEvent': {
       // 'size' = total commit yang di-push, lebih akurat dibanding commits.length
       // (GitHub kadang nggak isi penuh array commits di payload)
-      const count = event.payload.size ?? event.payload.commits?.length ?? 0
+      const count = Math.max(event.payload.size ?? 0, event.payload.commits?.length ?? 0)
       const msg = event.payload.commits?.[0]?.message?.split('\n')[0]
+
+      if (count === 0) {
+        return `updated ${repo}`
+      }
       return `pushed ${count} commit${count !== 1 ? 's' : ''} to ${repo}${msg ? `: "${msg}"` : ''}`
     }
     case 'CreateEvent':
