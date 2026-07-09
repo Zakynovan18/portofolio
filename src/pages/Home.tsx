@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
  
-import GitHubActivity from '../components/Githubactivity'
+import Terminal from '../components/Terminal'
 import AboutSection from '../components/AboutSection'
 import TechStackSection from '../components/TechStackSection'
 import ProjectsSection from '../components/ProjectsSection'
@@ -139,7 +139,7 @@ export default function Home() {
             {/* Foto profil bulat + sapaan */}
             <div className="mt-12 flex items-center gap-x-4">
               <img
-                src="/profile.jpg"
+                src="/profil.png"
                 alt="Foto Muhammad Zaky Novananda"
                 className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover ring-2 ring-blue-500/50"
               />
@@ -153,7 +153,7 @@ export default function Home() {
             </h1>
  
             <p className="mt-6 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              i am fresh graduate, and i am passionate in web developer and machine learning.
+              I'm a final-year Informatics Engineering student, passionate in web development and machine learning.
             </p>
  
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -177,7 +177,7 @@ export default function Home() {
  
   <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-20">
     <div className="w-full max-w-md flex-none sm:max-w-xl lg:max-w-2xl">
-      <GitHubActivity username="Zakynovan18" />
+      <Terminal />
     </div>
   </div>
 </div>
