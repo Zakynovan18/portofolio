@@ -11,6 +11,7 @@ interface GitHubEvent {
   created_at: string
   payload: {
     commits?: { message: string }[]
+    size?: number
     ref_type?: string
     action?: string
   }
@@ -22,12 +23,16 @@ function describeEvent(event: GitHubEvent): string {
 
   switch (event.type) {
     case 'PushEvent': {
-      const count = event.payload.commits?.length ?? 0
+      // 'size' = total commit yang di-push, lebih akurat dibanding commits.length
+      // (GitHub kadang nggak isi penuh array commits di payload)
+      const count = event.payload.size ?? event.payload.commits?.length ?? 0
       const msg = event.payload.commits?.[0]?.message?.split('\n')[0]
-      return `pushed ${count} commit${count > 1 ? 's' : ''} to ${repo}${msg ? `: "${msg}"` : ''}`
+      return `pushed ${count} commit${count !== 1 ? 's' : ''} to ${repo}${msg ? `: "${msg}"` : ''}`
     }
     case 'CreateEvent':
       return `created ${event.payload.ref_type ?? 'repo'} in ${repo}`
+    case 'PublicEvent':
+      return `made ${repo} public`
     case 'WatchEvent':
       return `starred ${repo}`
     case 'ForkEvent':
@@ -104,7 +109,7 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
             Recent Activity
           </span>
 
-          <div className="h-[150px] overflow-y-auto text-[11px] leading-relaxed pr-1 scrollbar-thin scrollbar-thumb-white/10 flex flex-col gap-y-2.5">
+          <div className="h-[150px] overflow-y-auto text-[11px] leading-relaxed pr-1 select-none pointer-events-none scrollbar-thin scrollbar-thumb-white/10 flex flex-col gap-y-2.5">
             {loading && (
               <div className="text-slate-600 italic">Fetching activity...</div>
             )}
@@ -116,7 +121,7 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
                   href={`https://github.com/${username}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline"
+                  className="text-blue-400 hover:underline pointer-events-auto"
                 >
                   github.com/{username}
                 </a>{' '}
