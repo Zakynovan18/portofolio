@@ -127,7 +127,7 @@ export default function GitHubActivity({ username }: GitHubActivityProps) {
             Recent Activity
           </span>
 
-          <div className="h-[150px] overflow-y-auto text-[11px] leading-relaxed pr-1 select-none scrollbar-thin scrollbar-thumb-white/10 flex flex-col gap-y-2.5">
+          <div className="text-[11px] leading-relaxed pr-1 select-none pointer-events-none flex flex-col gap-y-3">
             {loading && (
               <div className="text-slate-600 italic">Fetching activity...</div>
             )}
