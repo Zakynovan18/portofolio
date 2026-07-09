@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
  
-import Terminal from '../components/Terminal'
+import GitHubActivity from '../components/Githubactivity'
 import AboutSection from '../components/AboutSection'
 import TechStackSection from '../components/TechStackSection'
 import ProjectsSection from '../components/ProjectsSection'
@@ -177,7 +177,7 @@ export default function Home() {
  
   <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-20">
     <div className="w-full max-w-md flex-none sm:max-w-xl lg:max-w-2xl">
-      <Terminal />
+      <GitHubActivity username="Zakynovan18" />
     </div>
   </div>
 </div>
