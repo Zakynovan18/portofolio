@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline' 
 
-import GitHubActivity from '../components/Githubactivity' 
+import GitHubActivity from '../components/GithubActivity' 
 import AboutSection from '../components/AboutSection'
 import TechStackSection from '../components/TechStackSection'
 import ProjectsSection from '../components/ProjectsSection'
@@ -27,7 +27,7 @@ export default function Home() {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, []) 
  
   return (
     <div className="bg-slate-950 min-h-screen text-white relative overflow-hidden">
