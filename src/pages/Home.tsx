@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
- 
-import GitHubActivity from '../components/GithubActivity'
+import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline' 
+
+import GitHubActivity from '../components/Githubactivity' 
 import AboutSection from '../components/AboutSection'
 import TechStackSection from '../components/TechStackSection'
 import ProjectsSection from '../components/ProjectsSection'
