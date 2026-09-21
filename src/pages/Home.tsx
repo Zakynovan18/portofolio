@@ -153,7 +153,7 @@ export default function Home() {
             </h1>
  
             <p className="mt-6 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              I'm a final-year Informatics Engineering student, passionate in web development and machine learning.
+              I'm a fresh Informatics Engineering graduate and aspiring Full-Stack Developer, building web applications powered by machine learning.
             </p>
  
             <div className="mt-10 flex flex-wrap items-center gap-4">
