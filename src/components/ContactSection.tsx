@@ -60,7 +60,7 @@ export default function ContactSection() {
           Let's <span className="text-blue-400">Work Together</span>
         </h2>
         <p className="text-gray-400 text-lg max-w-xl mb-8">
-          Punya proyek atau ide yang mau didiskusikan? Jangan ragu untuk menghubungi saya.
+          Have a project or idea you'd like to discuss? Feel free to get in touch.
         </p>
         </Reveal>
  
@@ -91,7 +91,7 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1.5">
-                  Nama
+                  Name
                 </label>
                 <input
                   id="name"
@@ -100,7 +100,7 @@ export default function ContactSection() {
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Nama kamu"
+                  placeholder="Your name"
                   className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-blue-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition"
                 />
               </div>
@@ -116,14 +116,14 @@ export default function ContactSection() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="email@kamu.com"
+                  placeholder="you@example.com"
                   className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-blue-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition"
                 />
               </div>
  
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1.5">
-                  Pesan
+                  Message
                 </label>
                 <textarea
                   id="message"
@@ -132,7 +132,7 @@ export default function ContactSection() {
                   rows={4}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Tulis pesanmu disini."
+                  placeholder="Write your message here."
                   className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-blue-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition resize-none"
                 />
               </div>
@@ -145,7 +145,7 @@ export default function ContactSection() {
                     : 'bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600'
                 }`}
               >
-                {sent ? 'Pesan Terkirim ✓' : error ? 'Gagal, coba lagi' : 'Kirim Pesan'}
+                {sent ? 'Message Sent ✓' : error ? 'Failed, try again' : 'Send Message'}
               </button>
             </form>
           </div>
