@@ -40,7 +40,7 @@ export default function ContactSection() {
   }
  
   return (
-    <section id="contact" className="relative pt-20 pb-32" style={{ scrollMarginTop: '100px' }}>
+    <section id="contact" className="relative pt-8 pb-8 sm:pb-12" style={{ scrollMarginTop: '100px' }}>
       {/* blur bg */}
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
         <div

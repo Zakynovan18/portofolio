@@ -74,7 +74,7 @@ function TechRow({
  
 export default function TechStackSection() {
   return (
-    <section id="techstack" className="relative pt-20 pb-24 sm:pb-32" style={{ scrollMarginTop: '80px' }}>
+    <section id="techstack" className="relative pt-8 pb-8 sm:pb-12" style={{ scrollMarginTop: '80px' }}>
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
         <div
           style={{ clipPath: 'polygon(0 20%,100% 0,100% 100%,0 80%)' }}
