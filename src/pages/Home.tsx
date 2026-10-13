@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline' 
+import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline' 
 
 import GitHubActivity from '../components/GithubActivity' 
 import AboutSection from '../components/AboutSection'
@@ -165,13 +165,37 @@ export default function Home() {
                 <ArrowDownTrayIcon className="size-4" />
                 Download CV
               </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-x-2 rounded-md border-2 border-blue-500 px-4 py-2.5 text-sm font-semibold text-blue-400 hover:bg-blue-500/10 transition"
-              >
-                <EnvelopeIcon className="size-4" />
-                Contact Me <span aria-hidden="true">→</span>
-              </a>
+              <Menu as="div" className="relative">
+                <MenuButton className="inline-flex items-center gap-x-2 rounded-md border-2 border-blue-500 px-4 py-2.5 text-sm font-semibold text-blue-400 hover:bg-blue-500/10 transition">
+                  <EnvelopeIcon className="size-4" />
+                  Contact Me <span aria-hidden="true">→</span>
+                </MenuButton>
+                <MenuItems
+                  anchor="bottom start"
+                  className="z-50 mt-2 min-w-48 origin-top-left rounded-lg bg-slate-900 p-1.5 shadow-xl ring-1 ring-white/10 focus:outline-none"
+                >
+                  <MenuItem>
+                    <a
+                      href="mailto:novanandazaky@gmail.com"
+                      className="flex items-center gap-x-3 rounded-md px-3 py-2.5 text-sm text-gray-200 data-[focus]:bg-white/10 data-[focus]:text-white"
+                    >
+                      <EnvelopeIcon className="size-4 text-blue-400" />
+                      Email
+                    </a>
+                  </MenuItem>
+                  <MenuItem>
+                    <a
+                      href="https://wa.me/6281358714035"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-x-3 rounded-md px-3 py-2.5 text-sm text-gray-200 data-[focus]:bg-white/10 data-[focus]:text-white"
+                    >
+                      <ChatBubbleLeftRightIcon className="size-4 text-emerald-400" />
+                      WhatsApp
+                    </a>
+                  </MenuItem>
+                </MenuItems>
+              </Menu>
             </div>
           </div>
  
