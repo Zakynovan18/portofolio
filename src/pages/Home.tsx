@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline' 
+import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon, ChatBubbleLeftRightIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
 
 import GitHubActivity from '../components/GithubActivity' 
 import AboutSection from '../components/AboutSection'
@@ -18,16 +18,43 @@ const navigation = [
   { name: 'Certificates', href: '#certificates' },
   { name: 'Contact', href: '#contact' },
 ]
+
+function ThemeToggle({ isLightTheme, onToggle }: { isLightTheme: boolean; onToggle: () => void }) {
+  const nextTheme = isLightTheme ? 'dark' : 'light'
+  const Icon = isLightTheme ? MoonIcon : SunIcon
+
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-label={`Switch to ${nextTheme} theme`}
+      aria-pressed={isLightTheme}
+      title={`Switch to ${nextTheme} theme`}
+      className="theme-toggle inline-flex items-center justify-center rounded-md border border-white/10 bg-white/5 p-2.5 text-gray-300 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+    >
+      <Icon aria-hidden="true" className="size-5" />
+    </button>
+  )
+}
  
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isLightTheme, setIsLightTheme] = useState(
+    () => window.localStorage.getItem('portfolio-theme') === 'light',
+  )
  
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, []) 
+
+  useEffect(() => {
+    const theme = isLightTheme ? 'light' : 'dark'
+    document.documentElement.dataset.theme = theme
+    window.localStorage.setItem('portfolio-theme', theme)
+  }, [isLightTheme])
  
   return (
     <div className="bg-slate-950 min-h-screen text-white relative overflow-hidden">
@@ -58,8 +85,16 @@ export default function Home() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <ThemeToggle
+              isLightTheme={isLightTheme}
+              onToggle={() => setIsLightTheme(theme => !theme)}
+            />
           </div>
-          <div className="flex lg:hidden">
+          <div className="flex items-center gap-x-2 lg:hidden">
+            <ThemeToggle
+              isLightTheme={isLightTheme}
+              onToggle={() => setIsLightTheme(theme => !theme)}
+            />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}

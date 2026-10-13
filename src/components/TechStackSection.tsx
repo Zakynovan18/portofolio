@@ -37,8 +37,8 @@ function TechRow({
 }) {
   return (
     <div style={{ overflow: 'hidden', position: 'relative', width: '100%' }}>
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-slate-950 to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-slate-950 to-transparent" />
+      <div className="tech-stack-fade-left pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-slate-950 to-transparent" />
+      <div className="tech-stack-fade-right pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-slate-950 to-transparent" />
  
       <div
         style={{
@@ -60,7 +60,7 @@ function TechRow({
               src={tech.icon}
               alt={tech.name}
               className="h-14 w-14 object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
-              style={{ filter: tech.name === 'Next.js' ? 'invert(1)' : undefined }}
+              style={{ filter: tech.name === 'Next.js' ? 'var(--nextjs-logo-filter, invert(1))' : undefined }}
             />
             <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors text-center leading-tight">
               {tech.name}

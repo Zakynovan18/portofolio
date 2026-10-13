@@ -32,7 +32,121 @@
       font-size: 16px;
     }
   }
+}
 
+  :root[data-theme='light'] {
+    color-scheme: light;
+    background: #f3f8ff;
+    --nextjs-logo-filter: none;
+  }
+
+  :root[data-theme='light'] body {
+    background: #f3f8ff;
+  }
+
+  :root[data-theme='light'] [class~='bg-slate-950'] {
+    background-color: #f3f8ff;
+  }
+
+  :root[data-theme='light'] [class~='bg-slate-950/40'] {
+    background-color: rgb(243 248 255 / 0.88);
+  }
+
+  :root[data-theme='light'] [class~='bg-slate-950/80'],
+  :root[data-theme='light'] [class~='bg-slate-900'],
+  :root[data-theme='light'] [class~='bg-slate-900/80'],
+  :root[data-theme='light'] [class~='bg-slate-900/60'] {
+    background-color: #ffffff;
+  }
+
+  :root[data-theme='light'] [class~='bg-white/5'] {
+    background-color: #ffffff;
+  }
+
+  :root[data-theme='light'] [class~='bg-white/8'],
+  :root[data-theme='light'] [class~='bg-white/10'] {
+    background-color: #eaf2ff;
+  }
+
+  :root[data-theme='light'] .text-white:not([class*='bg-blue-']):not([class*='bg-red-']) {
+    color: #172b4d;
+  }
+
+  :root[data-theme='light'] [class~='text-gray-200'] {
+    color: #475569;
+  }
+
+  :root[data-theme='light'] [class~='text-gray-300'],
+  :root[data-theme='light'] [class~='text-slate-300'] {
+    color: #334155;
+  }
+
+  :root[data-theme='light'] [class~='text-gray-400'] {
+    color: #52647c;
+  }
+
+  :root[data-theme='light'] [class~='text-gray-500'],
+  :root[data-theme='light'] [class~='text-slate-500'],
+  :root[data-theme='light'] [class~='text-slate-600'] {
+    color: #64748b;
+  }
+
+  :root[data-theme='light'] [class~='text-blue-400'],
+  :root[data-theme='light'] [class~='text-blue-300'] {
+    color: #1d4ed8;
+  }
+
+  :root[data-theme='light'] [class~='ring-white/10'] {
+    --tw-ring-color: rgb(23 43 77 / 0.12);
+  }
+
+  :root[data-theme='light'] [class~='border-white/10'],
+  :root[data-theme='light'] [class~='border-white/5'] {
+    border-color: rgb(23 43 77 / 0.12);
+  }
+
+  :root[data-theme='light'] [class~='divide-white/10'] {
+    --tw-divide-color: rgb(23 43 77 / 0.12);
+  }
+
+  :root[data-theme='light'] [class~='placeholder:text-gray-500']::placeholder {
+    color: #64748b;
+  }
+
+  :root[data-theme='light'] [class~='hover:text-white']:hover,
+  :root[data-theme='light'] [class~='group-hover:text-white']:is(:hover *) {
+    color: #172b4d;
+  }
+
+  :root[data-theme='light'] [class~='hover:text-blue-400']:hover,
+  :root[data-theme='light'] [class~='group-hover:text-blue-300']:is(:hover *) {
+    color: #1e40af;
+  }
+
+  :root[data-theme='light'] [class~='data-[focus]:text-white'][data-focus] {
+    color: #172b4d;
+  }
+
+  :root[data-theme='light'] .theme-toggle {
+    border-color: rgb(23 43 77 / 0.16);
+    background-color: #ffffff;
+    color: #334155;
+  }
+
+  :root[data-theme='light'] .theme-toggle:hover {
+    background-color: #eaf2ff;
+    color: #1d4ed8;
+  }
+
+  :root[data-theme='light'] .tech-stack-fade-left {
+    background-image: linear-gradient(to right, #f3f8ff, transparent);
+  }
+
+  :root[data-theme='light'] .tech-stack-fade-right {
+    background-image: linear-gradient(to left, #f3f8ff, transparent);
+  }
+
+@layer base {
   @media (prefers-color-scheme: dark) {
     :root {
       --text: #9ca3af;
