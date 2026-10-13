@@ -59,7 +59,7 @@ export default function CertificatesSection() {
             Certifications & <span className="text-blue-400">Achievements</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mb-12">
-            Beberapa sertifikat yang telah saya peroleh dari pelatihan dan kursus. Klik gambar untuk melihat lebih besar.
+            A selection of certificates I've earned through training programs and courses. Click a certificate to view it larger.
           </p>
         </Reveal>
 

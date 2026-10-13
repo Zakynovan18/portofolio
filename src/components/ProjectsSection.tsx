@@ -4,7 +4,7 @@ const projects = [
   {
     title: 'Questify',
     description:
-      'Platform edukasi interaktif berbasis kuis dengan tantangan tingkat level untuk meningkatkan motivasi belajar dan berpikir kritis.',
+      'An interactive, quiz-based learning platform featuring level-based challenges to boost learning motivation and critical thinking.',
     tags: ['Python', 'Django', 'MySQL', 'Bootstrap'],
     status: 'Completed',
     color: 'from-blue-600 to-indigo-600',
@@ -13,7 +13,7 @@ const projects = [
   {
     title: 'Vanshop',
     description:
-      'Platform toko online dengan keranjang belanja, manajemen produk, dan penyimpanan gambar berbasis cloud.',
+      'An online store with a shopping cart, product management, and cloud-based image storage.',
     tags: ['Laravel', 'Cloudinary', 'MySQL', 'Railway'],
     status: 'Completed',
     color: 'from-blue-600 to-indigo-600',
@@ -22,7 +22,7 @@ const projects = [
   {
     title: 'DuitSaku',
     description:
-      'Duitsaku merupakan aplikasi berbasis web yang dibuat untuk membantu mahasiswa terutama dalam manajemen keuangan selama berkuliah atau ngekost.',
+      'A web application that helps university students manage their finances while studying or living away from home.',
     tags: ['Laravel', 'Blade', 'MySQL', 'Bootstrap'],
     status: 'Completed',
     color: 'from-blue-600 to-indigo-600',
@@ -31,7 +31,7 @@ const projects = [
   {
     title: 'RentalKu',
     description:
-      'Website rental mobil untuk client, lengkap dengan alur pemesanan dan panel pengelolaan armada',
+      'A car rental website featuring a booking workflow and a fleet management dashboard.',
     tags: ['Next.js', 'Vercel', 'Supabase',],
     status: 'Completed',
     color: 'from-blue-600 to-indigo-600',
@@ -40,7 +40,7 @@ const projects = [
   {
     title: 'RedSco Perfume',
     description:
-      'Website penjualana yang dibuat untuk membantu umkm lokal dengan mempromosikan beberapa varian parfum dari toko nya',
+      'A website that helps a local small business promote its range of perfumes.',
     tags: ['Laravel', 'Mysql', 'Bootstrap'],
     status: 'Completed',
     color: 'from-blue-600 to-indigo-600',
@@ -49,7 +49,7 @@ const projects = [
   {
     title: 'Basne',
     description:
-      'Website yang saya buat karena permasalahan di pedesaan yaitusulitnya dalam menjual dan mencari pengepul panenan hasil petani saat musim panen',
+      'A website that helps rural farmers sell their harvest and connect with produce buyers during harvest season.',
     tags: ['Laravel', 'Blade', 'Mysql', 'Cloudinary', 'Railway'],
     status: 'Completed',
     color: 'from-blue-600 to-indigo-600',
@@ -77,7 +77,7 @@ export default function ProjectsSection() {
           Things I've <span className="text-blue-400">Built</span>
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mb-12">
-          Kumpulan proyek nyata yang pernah saya kerjakan — dari web app hingga machine learning.
+          A collection of projects I've built, from web applications to machine learning.
         </p>
         </Reveal>
  
@@ -87,11 +87,11 @@ export default function ProjectsSection() {
             <div
               className="group relative flex flex-col rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-blue-500/40 hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Preview gambar UI/halaman project */}
+              {/* Project interface preview */}
               <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
                 <img
                   src={project.image}
-                  alt={`Tampilan UI project ${project.title}`}
+                  alt={`${project.title} project interface`}
                   className="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/0 to-transparent" />
@@ -134,7 +134,7 @@ export default function ProjectsSection() {
           ))}
         </div>
  
-        {/* Link ke arsip project lengkap di GitHub */}
+        {/* Link to the full project archive on GitHub */}
         <Reveal delay={projects.length * 100}>
           <div className="mt-12 flex justify-center">
             <a
