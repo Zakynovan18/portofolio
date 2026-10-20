@@ -69,7 +69,7 @@
   display: block;
   overflow: hidden;
   border-radius: 50%;
-  background: var(--home-surface);
+  background: var(--home-green);
 }
 
 .wordmark-mark img {
