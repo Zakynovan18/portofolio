@@ -200,6 +200,7 @@ export default function Home() {
             <span className="portrait-circle" aria-hidden="true" />
             <span className="portrait-lines" aria-hidden="true" />
             <span className="portrait-outline" aria-hidden="true" />
+            <span className="portrait-triangle" aria-hidden="true" />
             <img src="/profil.png" alt="Muhammad Zaky Novananda" />
           </div>
         </section>
