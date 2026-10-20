@@ -69,7 +69,7 @@ const socials = [
  
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-slate-950">
+    <footer className="site-footer relative border-t border-white/10">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="flex flex-col items-center gap-y-8 sm:flex-row sm:items-start sm:justify-between sm:gap-y-0">
           {/* Logo & tagline */}

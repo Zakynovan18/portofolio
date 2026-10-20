@@ -19,6 +19,10 @@
   background-image: linear-gradient(to left, var(--home-bg), transparent);
 }
 
+.site-footer {
+  background-color: var(--home-surface);
+}
+
 :root[data-theme='light'] .site-shell {
   --home-bg: #f2f1ed;
   --home-surface: #e3e1da;
@@ -26,6 +30,10 @@
   --home-muted: #62665f;
   --home-green: #168526;
   --home-green-hover: #116d1f;
+}
+
+:root[data-theme='light'] .site-footer {
+  border-color: rgb(37 40 34 / 12%);
 }
 
 .site-header {
