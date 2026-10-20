@@ -12,10 +12,10 @@
 }
 
 :root[data-theme='light'] .site-shell {
-  --home-bg: #f3f8ff;
-  --home-surface: #dfe8f3;
-  --home-text: #172b4d;
-  --home-muted: #52647c;
+  --home-bg: #f2f1ed;
+  --home-surface: #e3e1da;
+  --home-text: #252822;
+  --home-muted: #62665f;
   --home-green: #168526;
   --home-green-hover: #116d1f;
 }
@@ -27,8 +27,8 @@
 }
 
 :root[data-theme='light'] .site-header {
-  border-color: rgb(23 43 77 / 10%);
-  background: rgb(243 248 255 / 90%);
+  border-color: rgb(37 40 34 / 10%);
+  background: rgb(242 241 237 / 90%);
 }
 
 .site-header.is-scrolled {
@@ -37,8 +37,8 @@
 }
 
 :root[data-theme='light'] .site-header.is-scrolled {
-  border-color: rgb(23 43 77 / 12%);
-  background: rgb(243 248 255 / 96%);
+  border-color: rgb(37 40 34 / 12%);
+  background: rgb(242 241 237 / 96%);
 }
 
 .site-nav {
@@ -66,14 +66,18 @@
 .wordmark-mark {
   width: 30px;
   height: 30px;
-  display: grid;
-  place-items: center;
+  display: block;
+  overflow: hidden;
   border-radius: 50%;
-  background: var(--home-green);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.06em;
+  background: var(--home-surface);
+}
+
+.wordmark-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(1);
 }
 
 .site-nav-links {
@@ -113,9 +117,9 @@
 }
 
 :root[data-theme='light'] .site-nav .theme-toggle {
-  border-color: rgb(23 43 77 / 16%);
+  border-color: rgb(37 40 34 / 16%);
   background: #fff;
-  color: #334155;
+  color: #454941;
 }
 
 .site-mobile-actions {
@@ -264,34 +268,58 @@
   aspect-ratio: 0.72;
   justify-self: end;
   overflow: visible;
+  transform: perspective(900px)
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg))
+    translate3d(var(--shift-x, 0px), var(--shift-y, 0px), 14px);
+  transform-style: preserve-3d;
+  transition: transform 220ms ease-out;
+  will-change: transform;
+}
+
+.hero-portrait::before {
+  position: absolute;
+  z-index: 0;
+  inset: 13% 0 3% 10%;
   background: var(--home-surface);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 20%);
+  content: "";
+  transition: box-shadow 220ms ease-out;
+  transform: translateZ(2px);
+}
+
+.hero-portrait:hover::before {
+  box-shadow: 0 30px 55px rgb(0 0 0 / 30%);
 }
 
 .hero-portrait img {
   position: absolute;
-  z-index: 1;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  z-index: 3;
+  bottom: -8%;
+  left: -6%;
+  width: 112%;
+  height: 116%;
   object-fit: contain;
   object-position: center bottom;
   filter: grayscale(1);
+  transform: translateZ(54px);
 }
 
 .portrait-circle {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   top: 4%;
-  left: 16%;
+  left: 22%;
   width: 82px;
   aspect-ratio: 1;
   border: 2px solid var(--home-green);
   border-radius: 50%;
+  transform: translateZ(36px);
 }
 
 .portrait-lines {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   top: 18%;
   right: 5%;
   width: 36%;
@@ -302,28 +330,48 @@
     rgb(199 195 62 / 82%) 12px 14px
   );
   transform: rotate(2deg);
+  translate: 0 0 18px;
 }
 
 .portrait-outline {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   top: 42%;
   left: -34px;
   width: 94px;
   aspect-ratio: 1;
   border: 6px solid rgb(34 155 46 / 35%);
   transform: rotate(28deg);
+  translate: 0 0 10px;
 }
 
-.github-activity {
-  width: min(100% - 64px, 1120px);
-  margin: 0 auto 72px;
-  display: flex;
-  justify-content: flex-end;
+.about-portrait {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 340px);
+  aspect-ratio: 1;
 }
 
-.github-activity > div {
-  width: min(100%, 560px);
+.about-portrait-ring {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border: 2px solid rgb(34 155 46 / 75%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about-portrait img {
+  position: absolute;
+  z-index: 1;
+  bottom: -8%;
+  left: 50%;
+  width: 110%;
+  height: 125%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: grayscale(1);
+  transform: translateX(-50%);
 }
 
 .site-shell a:focus-visible,
@@ -426,17 +474,22 @@
     border-width: 4px;
   }
 
-  .github-activity {
-    width: calc(100% - 40px);
-    margin-bottom: 52px;
-    justify-content: center;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .site-nav-links a,
   .hero-email,
-  .hero-socials a {
+  .hero-socials a,
+  .hero-portrait {
+    transition: none;
+  }
+
+  .hero-portrait {
+    transform: none;
+    will-change: auto;
+  }
+
+  .hero-portrait::before {
     transition: none;
   }
 }

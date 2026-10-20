@@ -123,7 +123,7 @@ const highlight = (line: string, lang: string) => {
           return <span key={i} className="text-pink-500 font-semibold">{part}</span>;
         }
         if (['gym', 'np', 'DQNAgent', 'NLPModel', 'Embedding', 'LSTM', 'Dense', 'express', 'app', 'OpenAI', 'db', 'PORT'].includes(trimmed)) {
-          return <span key={i} className="text-blue-400">{part}</span>;
+          return <span key={i} className="text-green-400">{part}</span>;
         }
         if (['make', 'observation_space', 'action_space', 'act', 'step', 'remember', 'print', 'console', 'log', 'compile', 'predict', 'status', 'json', 'query', 'listen', 'post', 'create'].includes(trimmed)) {
           return <span key={i} className="text-yellow-400">{part}</span>;
@@ -237,7 +237,7 @@ export default function Terminal() {
             {currentLineText && (
               <div className="whitespace-pre-wrap break-words">
                 {highlight(currentLineText, currentSnippet.language)}
-                <span className="animate-pulse bg-blue-400 text-transparent select-none ml-0.5">|</span>
+                <span className="animate-pulse bg-green-400 text-transparent select-none ml-0.5">|</span>
               </div>
             )}
           </div>
@@ -262,9 +262,9 @@ export default function Terminal() {
                   if (line.includes('[SUCCESS]') || line.startsWith('episode:') || line.startsWith('✔')) {
                     colorClass = 'text-emerald-400';
                   } else if (line.includes('[INFO]') || line.startsWith('>')) {
-                    colorClass = 'text-blue-400';
+                    colorClass = 'text-green-400';
                   } else if (line.includes('[API]')) {
-                    colorClass = 'text-cyan-400';
+                    colorClass = 'text-green-300';
                   }
                   return (
                     <div key={idx} className={`${colorClass} whitespace-pre-wrap break-words`}>

@@ -45,18 +45,18 @@ export default function CertificatesSection() {
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
         <div
           style={{ clipPath: 'polygon(0 20%,100% 0,100% 100%,0 80%)' }}
-          className="relative right-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-l from-blue-700 to-indigo-700 opacity-10"
+          className="relative right-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-l from-green-700 to-emerald-700 opacity-10"
         />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
           <div className="flex items-center gap-x-3 mb-4">
-            <span className="h-px flex-1 max-w-[3rem] bg-blue-500/60" />
-            <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Certificates</span>
+            <span className="h-px flex-1 max-w-[3rem] bg-green-500/60" />
+            <span className="text-xs font-semibold tracking-widest text-green-400 uppercase">Certificates</span>
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
-            Certifications & <span className="text-blue-400">Achievements</span>
+            Certifications & <span className="text-green-400">Achievements</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mb-12">
             A selection of certificates I've earned through training programs and courses. Click a certificate to view it larger.
@@ -68,7 +68,7 @@ export default function CertificatesSection() {
             <Reveal key={cert.title} delay={i * 100}>
               <button
                 onClick={() => setSelected(i)}
-                className="group relative flex flex-col rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-blue-500/40 hover:-translate-y-1 transition-all duration-300 text-left cursor-pointer w-full"
+                className="group relative flex w-full cursor-pointer flex-col overflow-hidden rounded-2xl bg-white/5 text-left ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:ring-green-500/40"
               >
                 <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
                   <img
@@ -82,7 +82,7 @@ export default function CertificatesSection() {
                 </div>
 
                 <div className="p-5 flex flex-col gap-1">
-                  <h3 className="text-sm font-bold text-white group-hover:text-blue-300 transition-colors leading-snug">
+                  <h3 className="text-sm font-bold text-white transition-colors group-hover:text-green-300 leading-snug">
                     {cert.title}
                   </h3>
                   <p className="text-xs text-gray-400">

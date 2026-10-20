@@ -53,7 +53,7 @@ function TechRow({
         {items.map((tech, i) => (
           <div
             key={i}
-            className="group flex flex-col items-center gap-y-3 rounded-2xl bg-white/5 ring-1 ring-white/10 px-6 pt-7 pb-5 flex-shrink-0 hover:bg-white/10 hover:ring-blue-500/40 transition-all duration-300 cursor-default"
+            className="group flex flex-col items-center gap-y-3 rounded-2xl bg-white/5 ring-1 ring-white/10 px-6 pt-7 pb-5 flex-shrink-0 hover:bg-white/10 hover:ring-green-500/40 transition-all duration-300 cursor-default"
             style={{ width: '160px' }}
           >
             <img
@@ -78,18 +78,18 @@ export default function TechStackSection() {
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
         <div
           style={{ clipPath: 'polygon(0 20%,100% 0,100% 100%,0 80%)' }}
-          className="relative right-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-l from-blue-700 to-indigo-700 opacity-10"
+          className="relative right-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-l from-green-700 to-emerald-700 opacity-10"
         />
       </div>
  
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mb-10">
         <Reveal>
         <div className="flex items-center gap-x-3 mb-4">
-          <span className="h-px flex-1 max-w-[3rem] bg-blue-500/60" />
-          <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Tech Stack</span>
+          <span className="h-px flex-1 max-w-[3rem] bg-green-500/60" />
+          <span className="text-xs font-semibold tracking-widest text-green-400 uppercase">Tech Stack</span>
         </div>
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
-          Tools & Technologies I <span className="text-blue-400">Work With</span>
+          Tools & Technologies I <span className="text-green-400">Work With</span>
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl">
           A collection of languages, frameworks, and tools I use to build modern, scalable applications.

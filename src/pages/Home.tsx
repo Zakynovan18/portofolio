@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type PointerEvent } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon, ChatBubbleLeftRightIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
 import './Home.css'
 
-import GitHubActivity from '../components/GithubActivity' 
 import AboutSection from '../components/AboutSection'
 import TechStackSection from '../components/TechStackSection'
 import ProjectsSection from '../components/ProjectsSection'
+import InterestsSection from '../components/InterestsSection'
 import CertificatesSection from '../components/CertificatesSection'
 import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
@@ -31,7 +31,7 @@ function ThemeToggle({ isLightTheme, onToggle }: { isLightTheme: boolean; onTogg
       aria-label={`Switch to ${nextTheme} theme`}
       aria-pressed={isLightTheme}
       title={`Switch to ${nextTheme} theme`}
-      className="theme-toggle inline-flex items-center justify-center rounded-md border border-white/10 bg-white/5 p-2.5 text-gray-300 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+      className="theme-toggle inline-flex items-center justify-center rounded-md border border-white/10 bg-white/5 p-2.5 text-gray-300 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
     >
       <Icon aria-hidden="true" className="size-5" />
     </button>
@@ -68,7 +68,9 @@ export default function Home() {
       >
         <nav aria-label="Global" className="site-nav">
           <a href="#home" className="site-wordmark">
-            <span className="wordmark-mark" aria-hidden="true">N</span>
+            <span className="wordmark-mark">
+              <img src="/profil.png" alt="" />
+            </span>
             <span>Nanda.</span>
           </a>
           <div className="site-nav-links">
@@ -175,15 +177,31 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="hero-portrait" aria-label="Portrait of Muhammad Zaky Novananda">
+          <div
+            className="hero-portrait"
+            onPointerMove={(event: PointerEvent<HTMLDivElement>) => {
+              if (event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+              const bounds = event.currentTarget.getBoundingClientRect()
+              const x = (event.clientX - bounds.left) / bounds.width * 2 - 1
+              const y = (event.clientY - bounds.top) / bounds.height * 2 - 1
+              event.currentTarget.style.setProperty('--tilt-x', `${-y * 9}deg`)
+              event.currentTarget.style.setProperty('--tilt-y', `${x * 11}deg`)
+              event.currentTarget.style.setProperty('--shift-x', `${x * 8}px`)
+              event.currentTarget.style.setProperty('--shift-y', `${y * 8}px`)
+            }}
+            onPointerLeave={(event: PointerEvent<HTMLDivElement>) => {
+              event.currentTarget.style.setProperty('--tilt-x', '0deg')
+              event.currentTarget.style.setProperty('--tilt-y', '0deg')
+              event.currentTarget.style.setProperty('--shift-x', '0px')
+              event.currentTarget.style.setProperty('--shift-y', '0px')
+            }}
+          >
             <span className="portrait-circle" aria-hidden="true" />
             <span className="portrait-lines" aria-hidden="true" />
             <span className="portrait-outline" aria-hidden="true" />
             <img src="/profil.png" alt="Muhammad Zaky Novananda" />
           </div>
-        </section>
-        <section className="github-activity" aria-label="Recent GitHub activity">
-          <GitHubActivity username="Zakynovan18" />
         </section>
       </main>
  
@@ -196,6 +214,9 @@ export default function Home() {
       {/* ── PROJECTS SECTION ── */}
       <ProjectsSection />
  
+      {/* ── INTERESTS SECTION ── */}
+      <InterestsSection />
+
       {/* ── CERTIFICATES SECTION ── */}
       <CertificatesSection />
  

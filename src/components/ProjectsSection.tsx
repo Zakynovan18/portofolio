@@ -6,8 +6,6 @@ const projects = [
     description:
       'An interactive, quiz-based learning platform featuring level-based challenges to boost learning motivation and critical thinking.',
     tags: ['Python', 'Django', 'MySQL', 'Bootstrap'],
-    status: 'Completed',
-    color: 'from-blue-600 to-indigo-600',
     image: '/projects/questify.png',
   },
   {
@@ -15,8 +13,6 @@ const projects = [
     description:
       'An online store with a shopping cart, product management, and cloud-based image storage.',
     tags: ['Laravel', 'Cloudinary', 'MySQL', 'Railway'],
-    status: 'Completed',
-    color: 'from-blue-600 to-indigo-600',
     image: '/projects/vanshop.jpeg',
   },
   {
@@ -24,8 +20,6 @@ const projects = [
     description:
       'A web application that helps university students manage their finances while studying or living away from home.',
     tags: ['Laravel', 'Blade', 'MySQL', 'Bootstrap'],
-    status: 'Completed',
-    color: 'from-blue-600 to-indigo-600',
     image: '/projects/duitsaku.jpeg',
   },
   {
@@ -33,8 +27,6 @@ const projects = [
     description:
       'A car rental website featuring a booking workflow and a fleet management dashboard.',
     tags: ['Next.js', 'Vercel', 'Supabase',],
-    status: 'Completed',
-    color: 'from-blue-600 to-indigo-600',
     image: '/projects/rentalku.jpeg',
   },
   {
@@ -42,8 +34,6 @@ const projects = [
     description:
       'A website that helps a local small business promote its range of perfumes.',
     tags: ['Laravel', 'Mysql', 'Bootstrap'],
-    status: 'Completed',
-    color: 'from-blue-600 to-indigo-600',
     image: '/projects/redsco.jpeg',
   },
   {
@@ -51,78 +41,62 @@ const projects = [
     description:
       'A website that helps rural farmers sell their harvest and connect with produce buyers during harvest season.',
     tags: ['Laravel', 'Blade', 'Mysql', 'Cloudinary', 'Railway'],
-    status: 'Completed',
-    color: 'from-blue-600 to-indigo-600',
     image: '/projects/basne.jpeg',
   },
 ]
  
 export default function ProjectsSection() {
   return (
-    <section id="project" className="relative pt-8 pb-8 sm:pb-12" style={{ scrollMarginTop: '80px' }}>
+    <section id="project" className="relative pt-8 pb-12 sm:pb-16" style={{ scrollMarginTop: '80px' }}>
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
         <div
           style={{ clipPath: 'polygon(0 0,100% 20%,100% 80%,0 100%)' }}
-          className="relative left-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-r from-blue-700 to-indigo-700 opacity-10"
+          className="relative left-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-r from-green-700 to-emerald-700 opacity-10"
         />
       </div>
  
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
         <div className="flex items-center gap-x-3 mb-4">
-          <span className="h-px flex-1 max-w-[3rem] bg-blue-500/60" />
-          <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Projects</span>
+          <span className="h-px flex-1 max-w-[3rem] bg-green-500/60" />
+          <span className="text-xs font-semibold tracking-widest text-green-400 uppercase">Projects</span>
         </div>
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
-          Things I've <span className="text-blue-400">Built</span>
+          Selected Projects
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mb-12">
-          A collection of projects I've built, from web applications to machine learning.
+          A selection of web applications built to solve practical problems.
         </p>
         </Reveal>
  
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-12">
           {projects.map((project, index) => (
             <Reveal key={project.title} delay={index * 100}>
             <div
-              className="group relative flex flex-col rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-blue-500/40 hover:-translate-y-1 transition-all duration-300"
+              className="group flex min-w-0 flex-col"
             >
-              {/* Project interface preview */}
-              <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm bg-slate-900">
                 <img
                   src={project.image}
                   alt={`${project.title} project interface`}
-                  className="h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/0 to-transparent" />
-                <div className={`absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r ${project.color}`} />
               </div>
  
-              <div className="p-6 flex flex-col gap-4 flex-1">
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-base font-bold text-white group-hover:text-blue-300 transition-colors leading-snug">
-                    {project.title}
-                  </h3>
-                  <span
-                    className={`shrink-0 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                      project.status === 'Completed'
-                        ? 'bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-500/30'
-                        : 'bg-amber-500/15 text-amber-400 ring-1 ring-amber-500/30'
-                    }`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
- 
-                <p className="text-sm text-gray-400 leading-relaxed flex-1">
+              <div className="flex flex-1 flex-col gap-3 pt-5">
+                <h3 className="text-xl font-bold leading-snug text-white transition-colors group-hover:text-green-300">
+                  {project.title}
+                </h3>
+                <p className="max-w-xl text-sm leading-relaxed text-gray-400">
                   {project.description}
                 </p>
  
-                <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1.5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-300 ring-1 ring-blue-500/20"
+                      className="text-xs font-medium text-green-400"
                     >
                       {tag}
                     </span>
@@ -141,9 +115,9 @@ export default function ProjectsSection() {
               href="https://github.com/Zakynovan18"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-x-1 text-sm font-semibold text-white hover:text-blue-400 transition"
+              className="inline-flex items-center gap-x-1 text-sm font-semibold text-white transition hover:text-green-400"
             >
-              View Archive Project <span aria-hidden="true">→</span>
+              View project archive <span aria-hidden="true">→</span>
             </a>
           </div>
         </Reveal>

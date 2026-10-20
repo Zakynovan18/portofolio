@@ -29,7 +29,7 @@ const socials = [
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/muhammad-zaky-novananda-3567ab321?utm_source=share_via&utm_content=profile&utm_medium=member_android',
-    hoverColor: 'hover:text-blue-400',
+    hoverColor: 'hover:text-green-400',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="size-7">
         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.783 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-1.337-.024-3.059-1.865-3.059-1.868 0-2.155 1.459-2.155 2.964v5.699h-3v-11h2.881v1.503h.041c.401-.757 1.379-1.556 2.839-1.556 3.036 0 3.6 2 3.6 4.601v6.452z" />
@@ -81,7 +81,7 @@ export default function Footer() {
               Web Developer &amp; Machine Learning Enthusiast. Membangun sesuatu yang bermanfaat, satu baris kode dalam satu waktu. <br /> Visca Barca Visca Catalunya.
             </p>
             <p className="mt-3 flex items-center justify-center gap-x-1.5 text-sm text-gray-500 sm:justify-start">
-  <MapPinIcon className="size-4 text-blue-400 flex-shrink-0 mt-0.5" />
+  <MapPinIcon className="size-4 text-green-400 flex-shrink-0 mt-0.5" />
   <span className="text-left">JL. Tani Sentosa, Kedungglugu, Kec. Gondang, Kab. Nganjuk, Jawa Timur</span>
 </p>
           </div>
@@ -92,7 +92,7 @@ export default function Footer() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-base text-gray-400 hover:text-blue-400 transition"
+                className="text-base text-gray-400 transition hover:text-green-400"
               >
                 {item.name}
               </a>

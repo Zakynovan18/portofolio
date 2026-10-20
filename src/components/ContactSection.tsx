@@ -45,7 +45,7 @@ export default function ContactSection() {
       <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
         <div
           style={{ clipPath: 'polygon(0 0,100% 20%,100% 80%,0 100%)' }}
-          className="relative left-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-r from-blue-700 to-indigo-700 opacity-10"
+          className="relative left-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-r from-green-700 to-emerald-700 opacity-10"
         />
       </div>
  
@@ -53,11 +53,11 @@ export default function ContactSection() {
         {/* Section Label */}
         <Reveal>
         <div className="flex items-center gap-x-3 mb-4">
-          <span className="h-px flex-1 max-w-[3rem] bg-blue-500/60" />
-          <span className="text-xs font-semibold tracking-widest text-blue-400 uppercase">Contact</span>
+          <span className="h-px flex-1 max-w-[3rem] bg-green-500/60" />
+          <span className="text-xs font-semibold tracking-widest text-green-400 uppercase">Contact</span>
         </div>
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
-          Let's <span className="text-blue-400">Work Together</span>
+          Let's <span className="text-green-400">Work Together</span>
         </h2>
         <p className="text-gray-400 text-lg max-w-xl mb-8">
           Have a project or idea you'd like to discuss? Feel free to get in touch.
@@ -70,8 +70,8 @@ export default function ContactSection() {
           <div className="flex flex-col gap-y-6 lg:mt-11">
             {contactInfo.map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-start gap-x-4">
-                <div className="flex-shrink-0 rounded-xl bg-blue-500/10 ring-1 ring-blue-500/20 p-3">
-                  <Icon className="size-5 text-blue-400" />
+                <div className="flex-shrink-0 rounded-xl bg-green-500/10 ring-1 ring-green-500/20 p-3">
+                  <Icon className="size-5 text-green-400" />
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{label}</div>
@@ -86,7 +86,7 @@ export default function ContactSection() {
           <Reveal delay={150}>
           <div className="mt-12 lg:mt-0">
             <h3 className="text-lg font-bold text-white mb-6">
-              Send a <span className="text-blue-400">Message</span>
+              Send a <span className="text-green-400">Message</span>
             </h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
               <div>
@@ -101,7 +101,7 @@ export default function ContactSection() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="Your name"
-                  className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-blue-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition"
+                  className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-green-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition"
                 />
               </div>
  
@@ -117,7 +117,7 @@ export default function ContactSection() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="you@example.com"
-                  className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-blue-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition"
+                  className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-green-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition"
                 />
               </div>
  
@@ -133,7 +133,7 @@ export default function ContactSection() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="Write your message here."
-                  className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-blue-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition resize-none"
+                  className="w-full rounded-lg bg-white/5 ring-1 ring-white/10 focus:ring-2 focus:ring-green-500 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition resize-none"
                 />
               </div>
  
@@ -142,7 +142,7 @@ export default function ContactSection() {
                 className={`mt-2 rounded-md px-4 py-2.5 text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 transition ${
                   error
                     ? 'bg-red-600 hover:bg-red-500 focus-visible:outline-red-600'
-                    : 'bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600'
+                    : 'bg-green-700 hover:bg-green-600 focus-visible:outline-green-700'
                 }`}
               >
                 {sent ? 'Message Sent ✓' : error ? 'Failed, try again' : 'Send Message'}
