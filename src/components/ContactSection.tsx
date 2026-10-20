@@ -59,7 +59,7 @@ export default function ContactSection() {
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
           Let's <span className="text-green-400">Work Together</span>
         </h2>
-        <p className="text-gray-400 text-lg max-w-xl mb-8">
+        <p className="mt-5 max-w-xl text-base leading-7 text-gray-400 mb-8">
           Have a project or idea you'd like to discuss? Feel free to get in touch.
         </p>
         </Reveal>

@@ -37,12 +37,12 @@ export default function AboutSection() {
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Passionate about building things <span className="text-green-400">for the web</span>
               </h2>
-              <p className="mt-6 text-lg text-gray-400 leading-8">
+              <p className="mt-5 max-w-xl text-base leading-7 text-gray-400">
                 Hi! I'm <span className="text-white font-semibold">Muhammad Zaky Novananda</span>, a recent Informatics Engineering graduate. I enjoy building clean,
                 performant web applications and exploring the intersection of <span className="text-green-400">web development</span> and{' '}
                 <span className="text-green-400">machine learning</span>.
               </p>
-              <p className="mt-4 text-base text-gray-500 leading-7">
+              <p className="mt-4 max-w-xl text-base leading-7 text-gray-400">
                 I enjoy turning complex problems into simple, beautiful, and intuitive solutions. When I'm not coding,
                 you'll find me reading about AI research or experimenting with new frameworks.
               </p>

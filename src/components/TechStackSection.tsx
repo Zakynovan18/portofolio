@@ -37,8 +37,8 @@ function TechRow({
 }) {
   return (
     <div style={{ overflow: 'hidden', position: 'relative', width: '100%' }}>
-      <div className="tech-stack-fade-left pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-slate-950 to-transparent" />
-      <div className="tech-stack-fade-right pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-slate-950 to-transparent" />
+      <div className="tech-stack-fade-left pointer-events-none absolute left-0 top-0 h-full w-24 z-10" />
+      <div className="tech-stack-fade-right pointer-events-none absolute right-0 top-0 h-full w-24 z-10" />
  
       <div
         style={{
@@ -91,7 +91,7 @@ export default function TechStackSection() {
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
           Tools & Technologies I <span className="text-green-400">Work With</span>
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl">
+        <p className="mt-5 max-w-xl text-base leading-7 text-gray-400">
           A collection of languages, frameworks, and tools I use to build modern, scalable applications.
         </p>
         </Reveal>

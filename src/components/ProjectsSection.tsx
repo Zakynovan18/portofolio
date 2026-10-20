@@ -64,7 +64,7 @@ export default function ProjectsSection() {
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
           Selected Projects
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mb-12">
+        <p className="mt-5 max-w-xl text-base leading-7 text-gray-400 mb-12">
           A selection of web applications built to solve practical problems.
         </p>
         </Reveal>

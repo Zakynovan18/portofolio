@@ -11,6 +11,14 @@
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
+.tech-stack-fade-left {
+  background-image: linear-gradient(to right, var(--home-bg), transparent);
+}
+
+.tech-stack-fade-right {
+  background-image: linear-gradient(to left, var(--home-bg), transparent);
+}
+
 :root[data-theme='light'] .site-shell {
   --home-bg: #f2f1ed;
   --home-surface: #e3e1da;
@@ -132,6 +140,14 @@
   border-radius: 6px;
 }
 
+.site-mobile-menu {
+  background-color: #202020;
+}
+
+:root[data-theme='light'] .site-mobile-menu {
+  background-color: #f2f1ed;
+}
+
 .home-hero {
   width: min(100% - 64px, 1120px);
   min-height: 690px;
@@ -185,12 +201,12 @@
 }
 
 .hero-description {
-  max-width: 550px;
+  max-width: 580px;
   margin-top: 30px;
   color: var(--home-muted);
-  font-size: 16px;
+  font-size: clamp(17px, 1.5vw, 19px);
   font-weight: 450;
-  line-height: 1.85;
+  line-height: 1.75;
 }
 
 .hero-actions {

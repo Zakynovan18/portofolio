@@ -58,7 +58,7 @@ export default function CertificatesSection() {
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
             Certifications & <span className="text-green-400">Achievements</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mb-12">
+          <p className="mt-5 max-w-xl text-base leading-7 text-gray-400 mb-12">
             A selection of certificates I've earned through training programs and courses. Click a certificate to view it larger.
           </p>
         </Reveal>
