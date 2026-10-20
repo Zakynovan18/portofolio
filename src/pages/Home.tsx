@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ArrowDownTrayIcon, EnvelopeIcon, ChatBubbleLeftRightIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
+import './Home.css'
 
 import GitHubActivity from '../components/GithubActivity' 
 import AboutSection from '../components/AboutSection'
@@ -57,40 +58,31 @@ export default function Home() {
   }, [isLightTheme])
  
   return (
-    <div className="bg-slate-950 min-h-screen text-white relative overflow-hidden">
+    <div className="site-shell min-h-screen text-white relative overflow-hidden">
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        className={`site-header fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
           scrolled
-            ? 'bg-slate-950 backdrop-blur-md border-b border-white/10 shadow-lg'
-            : 'bg-slate-950/40 backdrop-blur-sm border-b border-white/5'
+            ? 'is-scrolled'
+            : ''
         }`}
       >
-        <nav aria-label="Global" className="flex items-center justify-between p-4 sm:p-6 lg:px-8">
-          <div className="flex flex-1">
-            <a href="#home" className="-m-1.5 p-1.5 flex items-center">
-              <span className="text-2xl font-bold tracking-tight text-white">
-                Nanda.
-              </span>
-            </a>
-          </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-center lg:gap-x-10 xl:gap-x-12">
+        <nav aria-label="Global" className="site-nav">
+          <a href="#home" className="site-wordmark">
+            <span className="wordmark-mark" aria-hidden="true">N</span>
+            <span>Nanda.</span>
+          </a>
+          <div className="site-nav-links">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm/6 font-semibold text-white hover:text-blue-400 transition whitespace-nowrap"
-              >
-                {item.name}
-              </a>
+              <a key={item.name} href={item.href}>{item.name}</a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="site-nav-actions">
             <ThemeToggle
               isLightTheme={isLightTheme}
               onToggle={() => setIsLightTheme(theme => !theme)}
             />
           </div>
-          <div className="flex items-center gap-x-2 lg:hidden">
+          <div className="site-mobile-actions">
             <ThemeToggle
               isLightTheme={isLightTheme}
               onToggle={() => setIsLightTheme(theme => !theme)}
@@ -110,9 +102,7 @@ export default function Home() {
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-slate-950 p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
             <div className="flex items-center justify-between">
               <a href="#home" className="-m-1.5 p-1.5 flex items-center" onClick={() => setMobileMenuOpen(false)}>
-                <span className="text-xl font-bold tracking-tight text-white">
-                 Nanda.
-                </span>
+                <span className="text-xl font-bold tracking-tight text-white">Nanda.</span>
               </a>
               <button
                 type="button"
@@ -131,7 +121,7 @@ export default function Home() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5 hover:text-blue-400 transition"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5 hover:text-green-400 transition"
                     >
                       {item.name}
                     </a>
@@ -143,116 +133,59 @@ export default function Home() {
         </Dialog>
       </header>
  
-      <div id="home" className="relative isolate px-6 pt-14 lg:px-8" style={{ scrollMarginTop: '0px' }}>
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        >
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-blue-600 to-indigo-600 opacity-20 sm:left-[calc(50%-30rem)] sm:w-288.75"
-          />
-        </div>
- 
-        <div className="mx-auto max-w-7xl pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:pt-12 lg:pb-24 items-center justify-between">
-          <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8 text-left">
-            <div className="mt-16 sm:mt-24 lg:mt-8">
-              <a href="#" className="inline-flex flex-wrap items-center gap-x-3 gap-y-2">
-  <span className="inline-flex items-center gap-x-2 rounded-full bg-blue-500/10 px-3 py-1 text-sm/6 font-semibold text-blue-400 ring-1 ring-inset ring-blue-500/20 whitespace-nowrap">
-      <span className="relative flex h-2 w-2">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-      </span>
-      Available for Hire
-  </span>
-</a>
-            </div>
-
-            {/* Foto profil bulat + sapaan */}
-            <div className="mt-12 flex items-center gap-x-4">
-              <img
-                src="/profil.png"
-                alt="Foto Muhammad Zaky Novananda"
-                className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover ring-2 ring-blue-500/50"
-              />
-              <span className="text-lg font-medium text-gray-300">Hi, I'm Nanda</span>
-            </div>
-
-            <h1 className="mt-4 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-              <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                Web Developer
-              </span>
+      <main id="home" className="home-main">
+        <section className="home-hero" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="hero-greeting">Hi, I’m Nanda</p>
+            <h1 id="hero-title" className="hero-title">
+              Web developer building thoughtful digital experiences.
             </h1>
- 
-            <p className="mt-6 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              I'm a fresh Informatics Engineering graduate and aspiring Full-Stack Developer, building web applications powered by machine learning.
+            <p className="hero-description">
+              I’m an Informatics Engineering graduate who enjoys creating useful web
+              applications and exploring the possibilities of machine learning.
             </p>
- 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href="/cv/CV_Muhammad Zaky Novananda.pdf"
-                download="CV_Muhammad Zaky Novananda.pdf"
-                className="inline-flex items-center gap-x-2 rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition"
-              >
-                <ArrowDownTrayIcon className="size-4" />
-                Download CV
+
+            <div className="hero-actions">
+              <a className="hero-email" href="mailto:novanandazaky@gmail.com">
+                <EnvelopeIcon aria-hidden="true" className="size-4" />
+                Email me
               </a>
-              <Menu as="div" className="relative">
-                <MenuButton className="inline-flex items-center gap-x-2 rounded-md border-2 border-blue-500 px-4 py-2.5 text-sm font-semibold text-blue-400 hover:bg-blue-500/10 transition">
-                  <EnvelopeIcon className="size-4" />
-                  Contact Me <span aria-hidden="true">→</span>
-                </MenuButton>
-                <MenuItems
-                  anchor="bottom start"
-                  className="z-50 mt-2 min-w-48 origin-top-left rounded-lg bg-slate-900 p-1.5 shadow-xl ring-1 ring-white/10 focus:outline-none"
-                >
-                  <MenuItem>
-                    <a
-                      href="mailto:novanandazaky@gmail.com"
-                      className="flex items-center gap-x-3 rounded-md px-3 py-2.5 text-sm text-gray-200 data-[focus]:bg-white/10 data-[focus]:text-white"
-                    >
-                      <EnvelopeIcon className="size-4 text-blue-400" />
-                      Email
-                    </a>
-                  </MenuItem>
-                  <MenuItem>
-                    <a
-                      href="https://wa.me/6281358714035"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-x-3 rounded-md px-3 py-2.5 text-sm text-gray-200 data-[focus]:bg-white/10 data-[focus]:text-white"
-                    >
-                      <ChatBubbleLeftRightIcon className="size-4 text-emerald-400" />
-                      WhatsApp
-                    </a>
-                  </MenuItem>
-                </MenuItems>
-              </Menu>
+              <div className="hero-socials" aria-label="Social links">
+                <a href="https://github.com/Zakynovan18" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.56 9.56 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.59c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" /></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-zaky-novananda-3567ab321" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05a3.75 3.75 0 0 1 3.37-1.85c3.6 0 4.26 2.37 4.26 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.78C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.78 24h20.43c.99 0 1.79-.77 1.79-1.72V1.72C24 .77 23.2 0 22.22 0Z" /></svg>
+                </a>
+                <a href="https://www.instagram.com/zakynovannd_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" /></svg>
+                </a>
+                <a href="https://wa.me/6281358714035" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <ChatBubbleLeftRightIcon aria-hidden="true" className="size-6" />
+                </a>
+              </div>
             </div>
+            <a
+              className="hero-cv"
+              href="/cv/CV_Muhammad Zaky Novananda.pdf"
+              download="CV_Muhammad Zaky Novananda.pdf"
+            >
+              <ArrowDownTrayIcon aria-hidden="true" className="size-4" />
+              Download CV
+            </a>
           </div>
- 
-  <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-20">
-    <div className="w-full max-w-md flex-none sm:max-w-xl lg:max-w-2xl">
-      <GitHubActivity username="Zakynovan18" />
-    </div>
-  </div>
-</div>
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        >
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-blue-500 to-indigo-500 opacity-20 sm:left-[calc(50%+36rem)] sm:w-288.75"
-          />
-        </div>
-      </div>
+
+          <div className="hero-portrait" aria-label="Portrait of Muhammad Zaky Novananda">
+            <span className="portrait-circle" aria-hidden="true" />
+            <span className="portrait-lines" aria-hidden="true" />
+            <span className="portrait-outline" aria-hidden="true" />
+            <img src="/profil.png" alt="Muhammad Zaky Novananda" />
+          </div>
+        </section>
+        <section className="github-activity" aria-label="Recent GitHub activity">
+          <GitHubActivity username="Zakynovan18" />
+        </section>
+      </main>
  
       {/* ── ABOUT SECTION ── */}
       <AboutSection />
