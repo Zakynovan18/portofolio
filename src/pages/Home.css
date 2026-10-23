@@ -329,7 +329,7 @@
   height: 92%;
   object-fit: contain;
   object-position: center bottom;
-  filter: grayscale(1);
+  filter: grayscale(1) brightness(0.68) contrast(1.12);
   transform: translateZ(54px) scaleX(1.08);
   transform-origin: center bottom;
 }
