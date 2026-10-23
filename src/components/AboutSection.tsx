@@ -13,7 +13,7 @@ export default function AboutSection() {
   const stats = [
     { label: 'Projects Built', value: '10+' },
     { label: 'Technologies', value: '10+' },
-    { label: 'Cups of Coffee', value: '∞' },
+    { label: 'Published Paper', value: '1' },
   ]
 
   return (
