@@ -1,5 +1,5 @@
 import Reveal from './Reveal'
- 
+
 const projects = [
   {
     title: 'Questify',
@@ -9,11 +9,11 @@ const projects = [
     image: '/projects/questify.png',
   },
   {
-    title: 'Vanshop',
+    title: 'Antrean Barber',
     description:
-      'An online store with a shopping cart, product management, and cloud-based image storage.',
-    tags: ['Laravel', 'Cloudinary', 'MySQL', 'Railway'],
-    image: '/projects/vanshop.jpeg',
+      'A real-time barbershop queue system with online ticketing, per-barber wait estimates, and a live dashboard for barbers.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+    image: '/projects/antrean.png',
   },
   {
     title: 'DuitSaku',
@@ -23,11 +23,11 @@ const projects = [
     image: '/projects/duitsaku.jpeg',
   },
   {
-    title: 'RentalKu',
+    title: 'AdityaTrans',
     description:
       'A car rental website featuring a booking workflow and a fleet management dashboard.',
     tags: ['Next.js', 'Vercel', 'Supabase',],
-    image: '/projects/rentalku.jpeg',
+    image: '/projects/adityatrans.png',
   },
   {
     title: 'RedSco Perfume',
@@ -44,7 +44,7 @@ const projects = [
     image: '/projects/basne.jpeg',
   },
 ]
- 
+
 export default function ProjectsSection() {
   return (
     <section id="project" className="relative pt-8 pb-12 sm:pb-16" style={{ scrollMarginTop: '80px' }}>
@@ -54,60 +54,60 @@ export default function ProjectsSection() {
           className="relative left-[calc(50%-20rem)] w-[60rem] aspect-[2/1] bg-gradient-to-r from-green-700 to-emerald-700 opacity-10"
         />
       </div>
- 
+
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal>
-        <div className="flex items-center gap-x-3 mb-4">
-          <span className="h-px flex-1 max-w-[3rem] bg-green-500/60" />
-          <span className="text-xs font-semibold tracking-widest text-green-400 uppercase">Projects</span>
-        </div>
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
-          Selected Projects
-        </h2>
-        <p className="mt-5 max-w-xl text-base leading-7 text-gray-400 mb-12">
-          A selection of web applications built to solve practical problems.
-        </p>
+          <div className="flex items-center gap-x-3 mb-4">
+            <span className="h-px flex-1 max-w-[3rem] bg-green-500/60" />
+            <span className="text-xs font-semibold tracking-widest text-green-400 uppercase">Projects</span>
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-3">
+            Selected Projects
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-gray-400 mb-12">
+            A selection of web applications built to solve practical problems.
+          </p>
         </Reveal>
- 
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-12">
           {projects.map((project, index) => (
             <Reveal key={project.title} delay={index * 100}>
-            <div
-              className="group flex min-w-0 flex-col"
-            >
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm bg-slate-900">
-                <img
-                  src={project.image}
-                  alt={`${project.title} project interface`}
-                  loading="lazy"
-                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
- 
-              <div className="flex flex-1 flex-col gap-3 pt-5">
-                <h3 className="text-xl font-bold leading-snug text-white transition-colors group-hover:text-green-300">
-                  {project.title}
-                </h3>
-                <p className="max-w-xl text-sm leading-relaxed text-gray-400">
-                  {project.description}
-                </p>
- 
-                <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium text-green-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <div
+                className="group flex min-w-0 flex-col"
+              >
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm bg-slate-900">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} project interface`}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col gap-3 pt-5">
+                  <h3 className="text-xl font-bold leading-snug text-white transition-colors group-hover:text-green-300">
+                    {project.title}
+                  </h3>
+                  <p className="max-w-xl text-sm leading-relaxed text-gray-400">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-1 flex flex-wrap gap-x-2 gap-y-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium text-green-400"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
             </Reveal>
           ))}
         </div>
- 
+
         {/* Link to the full project archive on GitHub */}
         <Reveal delay={projects.length * 100}>
           <div className="mt-12 flex justify-center">
