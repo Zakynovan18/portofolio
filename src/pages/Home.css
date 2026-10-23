@@ -8,7 +8,7 @@
   min-height: 100vh;
   background: var(--home-bg);
   color: var(--home-text);
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .tech-stack-fade-left {
