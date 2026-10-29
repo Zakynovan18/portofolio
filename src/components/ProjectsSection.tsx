@@ -37,11 +37,11 @@ const projects = [
     image: '/projects/redsco.jpeg',
   },
   {
-    title: 'Basne',
+    title: 'Web Praktek Dokter Spesialis',
     description:
-      'A website that helps rural farmers sell their harvest and connect with produce buyers during harvest season.',
-    tags: ['Laravel', 'Blade', 'Mysql', 'Cloudinary', 'Railway'],
-    image: '/projects/basne.jpeg',
+      'A website for a specialized doctor\'s practice, featuring an online booking system and patient management tools.',
+    tags: ['Next.js', 'Vercel', 'Supabase'],
+    image: '/projects/webdokter.png',
   },
 ]
 
